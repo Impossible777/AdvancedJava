@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
 import { Observable } from 'rxjs';
 import {map} from "rxjs/operators";
+import {takeUntil} from "rxjs-compat/operator/takeUntil";
 
 
 
@@ -14,8 +15,11 @@ import {map} from "rxjs/operators";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  welcomeMessages: any[] = [];
 
-  constructor(private httpClient:HttpClient){}
+  constructor(private httpClient:HttpClient, private http: HttpClient){}
+
+
 
   private baseURL:string='http://localhost:8080';
 
@@ -44,6 +48,20 @@ export class AppComponent implements OnInit{
       this.currentCheckInVal = x.checkin;
       this.currentCheckOutVal = x.checkout;
     });
+
+    this.getWelcomeMessages();
+  }
+
+  getWelcomeMessages() {
+      this.http.get<any[]>("http://localhost:8080/welcomeMessages")
+        .subscribe(
+          (messages) => {
+            this.welcomeMessages = messages;
+          },
+          (error) => {
+            console.error('Error fetching welcome messages', error);
+          }
+        )
   }
 
     onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){
@@ -72,6 +90,8 @@ export class AppComponent implements OnInit{
       this.httpClient.post(this.postUrl, body, options)
         .subscribe(res => console.log(res));
     }
+
+
 
   /*mapRoom(response:HttpResponse<any>): Room[]{
     return response.body;
