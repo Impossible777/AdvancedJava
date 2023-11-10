@@ -97,6 +97,11 @@ p {
   padding-bottom: 10px;
 }
 
+.b1 {
+  color: white;
+  font-size: 40px;
+}
+
 /* line 1, ../../../components/sass/_layout.scss */
 body {
   position: absolute;

@@ -1,4 +1,4 @@
-package Controller;
+package edu.wgu.d387_sample_code.Controller;
 
 import edu.wgu.d387_sample_code.D387SampleCodeApplication;
 import il8n.DisplayMessage;
@@ -21,7 +21,7 @@ public class WelcomeController {
     }
 
     @GetMapping("/welcomeMessages")
-        public List<CompletableFuture<String>> getWelcomeMessages() {
+        public List<String> getWelcomeMessages() {
             return d387SampleCodeApplication.getWelcomeMessages();
         }
 
