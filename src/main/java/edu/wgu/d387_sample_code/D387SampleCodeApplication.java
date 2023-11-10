@@ -1,19 +1,11 @@
 package edu.wgu.d387_sample_code;
 
-import edu.wgu.d387_sample_code.config.CorsConfig;
-import il8n.DisplayMessage;
-import org.springframework.boot.CommandLineRunner;
+import edu.wgu.d387_sample_code.il8n.DisplayMessage;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 
 @SpringBootApplication

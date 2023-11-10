@@ -1,4 +1,4 @@
-package il8n;
+package edu.wgu.d387_sample_code.il8n;
 import org.springframework.stereotype.Service;
 
 import java.util.Locale;
