@@ -15,7 +15,7 @@ public class TimeChangeController {
         this.timeConversion = timeConversion;
     }
 
-    @GetMapping("/timeConversion")
+    @GetMapping("/time")
     public String timeChange() {
         return timeConversion.changeTimeZone();
     }

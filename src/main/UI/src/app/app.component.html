@@ -10,9 +10,8 @@
         <li *ngFor="let message of welcomeMessages">
           {{message}}
 
-
         </li>
-       </ul>
+      </ul>
       </div>
 
       <p><a href="/#welcome"><img src="assets/images/arrow.png" alt="down arrow"></a></p>
@@ -35,6 +34,9 @@
 
 
 
+
+      <div>Please join us for a live online presentation being held at the Landon hotel. See below to match your time zone.</div><br>
+      <div [innerHTML]="changeTime"></div>
       <div class="row">
         <div class=""col-12>
           <div class="gallery">
@@ -44,6 +46,7 @@
             <img src="assets/images/intro_attractions.jpg" alt="Intro Gallery Attractions Sample Pictures">
             <img class="hidesm" src="assets/images/intro_wedding.jpg" alt="Intro Gallery Dining Sample Pictures">
           </div>
+
           <h1>Book a Room</h1>
           <form class="form-horizontal" [formGroup]="roomsearch"
           (ngSubmit)="onSubmit(roomsearch)">
@@ -73,6 +76,7 @@
       </div>
 
       <h1>Available Rooms</h1>
+
 
       <div class="row" *ngIf="rooms">
         <div class="col-12">

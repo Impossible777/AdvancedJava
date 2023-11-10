@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Service
 public class TimeConversion {
@@ -26,10 +27,14 @@ public class TimeConversion {
                 .withSecond(0)
                 .withZoneSameLocal(easternZone);
 
-        String mountTime = zonedDateTime.withZoneSameInstant(mountainZone).toString();
-        String utcTime = zonedDateTime.withZoneSameInstant(utcZone).toString();
-        String easternTime = zonedDateTime.toString();
-        return  "Eastern Time: " + easternTime + "\n" + "Mountain Time: " + mountTime + "\n" + "UTC Time: " + utcTime;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
+
+        String mountTime = zonedDateTime.withZoneSameInstant(mountainZone).format(formatter);
+        String utcTime = zonedDateTime.withZoneSameInstant(utcZone).format(formatter);
+        String easternTime = zonedDateTime.format(formatter);
+        return  "<p><strong>ET: </strong> " + easternTime + "</p>"
+                + "<p><strong>MT:</strong> " + mountTime + "</p>"
+                + "<p><strong>UTC:</strong> " + utcTime + "</p>";
     }
 
 

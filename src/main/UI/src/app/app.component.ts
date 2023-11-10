@@ -17,6 +17,10 @@ import {takeUntil} from "rxjs-compat/operator/takeUntil";
 export class AppComponent implements OnInit{
   welcomeMessages: any[] = [];
 
+  changeTime: string = "";
+
+
+
   constructor(private httpClient:HttpClient, private http: HttpClient){}
 
 
@@ -50,6 +54,20 @@ export class AppComponent implements OnInit{
     });
 
     this.getWelcomeMessages();
+    this.getChangeTimeMethod();
+  }
+
+  getChangeTimeMethod() {
+      this.http.get("http://localhost:8080/time", {responseType: 'text'})
+        .subscribe(
+          (value: string) => {
+            this.changeTime = value;
+          },
+          (error) => {
+            console.error('Error fetching time changes', error);
+          }
+        )
+
   }
 
   getWelcomeMessages() {
@@ -103,7 +121,8 @@ export class AppComponent implements OnInit{
        return this.httpClient.get(this.baseURL + '/room/reservation/v1?checkin='+ this.currentCheckInVal + '&checkout='+this.currentCheckOutVal, {responseType: 'json'});
     }
 
-  }
+
+}
 
 
 
