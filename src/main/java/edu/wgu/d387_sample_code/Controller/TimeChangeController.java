@@ -14,7 +14,7 @@ public class TimeChangeController {
     public TimeChangeController(TimeConversion timeConversion) {
         this.timeConversion = timeConversion;
     }
-
+    //Returns the time in three different time zones to the Angular Front-end
     @GetMapping("/time")
     public String timeChange() {
         return timeConversion.changeTimeZone();

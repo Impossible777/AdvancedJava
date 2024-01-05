@@ -1,29 +1,18 @@
-<strong> **DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
+Advanced Java
 
-# WESTERN GOVERNOR UNIVERSITY 
-## D387 – ADVANCED JAVA
-Welcome to Advanced Java! This is an opportunity for students to write multithreaded object-oriented code using Java frameworks and determine how to deploy software applications using cloud services.
+In this project for school, I was tasked with providing methods to enable improved localization and globalization of a hotel website. Please see below for an outline of how this was achieved.
 
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-## BASIC INSTRUCTIONS
-For this assessment, you will modify a Spring application with a Java back end and an Angular front end to include multithreaded language translation, a message at different time zones, and currency exchange. Then, build a Docker image of the current multithreaded Spring application and containerize it using the supporting documents provided in this task.
+1. Created resource bundles with a welcome message variable for English and French. These can be seen in Translation_en.properties and Translation_fr.properties
 
+2. Created a DisplayMessage.java class. This class provides a method that takes the locale as an argument and returns a String with the welcome message from the appropraite resource translation file.
 
-## SUPPLEMENTAL RESOURCES 
-1.	How to clone a project to IntelliJ using Git?
+3. Created the WelcomeController.java to provide a REST controller that provides the front-end with an API endpoint that returns the results of the getWelcomeMessage method.
 
-> Ensure that you have Git installed on your system and that IntelliJ is installed using [Toolbox](https://www.jetbrains.com/toolbox-app/). Make sure that you are using version 2022.3.2. Once this has been confirmed, click the clone button and use the 'IntelliJ IDEA (HTTPS)' button. This will open IntelliJ with a prompt to clone the proejct. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.  
+4. In the D387SampleCodeApplication.java class, I implemented a main method and initialized two instances of the Displaymessage class and method to return the welcome strings. Then, I returned the strings in an Array to be returned by the WelcomeController
 
-2. How to create a branch and start Development?
+5. Created the TimeConversion.java class. This class provides a method that returns times for multiple time zones. 
 
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
+6. Created the TimeChangeController.java to provide a REST controller that provides the front end with an API endpoint that returns the results of the changeTimeZone method. 
 
-- IntelliJ method
-> In IntelliJ, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
-
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+After all the above was complete, I created a Dockerfile and ensured the project could be run successfully as a docker image. 
 

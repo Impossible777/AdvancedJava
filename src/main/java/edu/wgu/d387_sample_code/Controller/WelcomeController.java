@@ -14,7 +14,8 @@ public class WelcomeController {
     public WelcomeController(D387SampleCodeApplication d387SampleCodeApplication) {
         this.d387SampleCodeApplication = d387SampleCodeApplication;
     }
-
+    //Returns the welcome message to the Angular front-end.
+    //Welcome message is retrieved from D837SampleCodeApplication.java
     @GetMapping("/welcomeMessages")
         public List<String> getWelcomeMessages() {
             System.out.println("Working");
